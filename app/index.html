@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>course_challenge_1</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    
+  </head>
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active">
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+        <h3 class="text-muted">course_challenge_1</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Dapp Interaction</h1>
+        <p class="lead">Deploy and Interact</p>
+        <p>
+
+          <button class="btn btn-lg btn-primary account-button">Account</button>
+          <button class="btn btn-lg btn-secondary deploy-button">Deploy</button>
+          <button class="btn btn-lg btn-info interact-button">Interact</button>
+          <button class="btn btn-lg btn-dark connect-button">Connect</button>
+        </p>
+      </div>
+
+      <div class="syncing">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar"
+           aria-valuemin="0" aria-valuemax="100">
+            40%
+          </div>
+        </div>
+      </div>
+
+      <article class="account">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Accounts</h2>
+          </div>
+          <div class="col-xs-12">
+            <div class="panel">
+              <table class="table">
+                <tr>
+                  <th>Address</th>
+                  <th>Balance</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <h3>Lock and Unlocks Accounts</h3>
+            <select class="account-select">
+              <option>Select Account</option>
+            </select>
+            <p>
+              <label>Password: </label>
+              <input type="text" name="" value="password" class="account-password">
+            </p>
+            <div>
+              <button class="btn btn-danger unlock-account">Unlock Account</button>
+              <button class="btn btn-success lock-account">Lock Account</button>
+            </div>
+            <div class="lock-unlock-result"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-md-8">
+            <div class="transaction-object">
+              <h3>Send Transaction/Ethers</h3>
+              <label>Send From: </label>
+              <select class="from-account">
+                <option>Select Account</option>
+              </select>
+              <br>
+              <label>Send To: </label><select class="to-account">
+                <option>Select Account</option>
+              </select>
+              <br>
+              <label>Value (Ether)</label><input type="text" name="" value="0" class="value"><br>
+              <label>Gas</label><input type="text" name="" value="default" class="gas"><br>
+              <label>Gas Price</label><input type="text" name="" value="default" class="gas-price"><br>
+              <label>Data</label><input type="text" name="" value="default" class="data"><br>
+              <label>Nonce</label><input type="text" name="" value="default" class="nonce"><br>
+              <button class="btn btn-success create-json">Create JSON</button>
+              <button class="btn btn-success transaction-reset">Reset</button>
+              <button class="btn btn-success transaction-send">Send</button>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <h3>Send Transaction JSON</h3>
+            <p class="transaction-json"></p>
+            <h3>Result</h3>
+            <p class="send-transaction-result"></p>
+            <p class="transaction-link"></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="deploy">
+        <section class="compile">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2>Compile</h2>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <h3>Solidity Code</h3>
+              <textarea class="solidity"></textarea>
+              <button class="btn btn-success transaction-send">Compile</button>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <h3>Compiled ByteCode</h3>
+              <textarea class="bytecode">0x6060604052341561000f57600080fd5b6102798061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806312e92de314610067578063627776621461008e5780638c659ab7146100bf578063bd5b383714610114575b600080fd5b341561007257600080fd5b61008c60048080356000191690602001909190505061013d565b005b341561009957600080fd5b6100a1610202565b60405180826000191660001916815260200191505060405180910390f35b34156100ca57600080fd5b6100d261020b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561011f57600080fd5b610127610235565b6040518082815260200191505060405180910390f35b806000816000191690555033600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555042600181905550600154600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16600054600019167f8c3f8124db3586b01b1a3687e65ac69ea4815aa8e9479454b8a8963bf1c6c2a860405160405180910390a450565b60008054905090565b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b6000603c600154420381151561024757fe5b049050905600a165627a7a7230582057a17f6b26a8ad4865b476749f8f877235c076a35e8750b0468bdd4bd7692a540029</textarea>
+            </div>
+            <div class="col-xs-12 col-md-6"></div>
+            <div class="col-xs-12 col-md-6">
+              <h3>Compiled ABI Definition</h3>
+              <textarea class="ABI">[{"constant":false,"inputs":[{"name":"yourName","type":"bytes32"}],"name":"interact","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"currentName","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"fromAddres","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"lastUpdatedMinutes","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"name","type":"bytes32"},{"indexed":true,"name":"addr","type":"address"},{"indexed":true,"name":"timeUpdated","type":"uint256"}],"name":"Interaction","type":"event"}]</textarea>
+            </div>
+            <div class="col-xs-12 col-md-6"></div>
+          </div>
+        </section>
+        <section class="contract">
+          <div class="row">
+            <div class="col-xs-12">
+              <h3>Create Contract Instance</h2>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <label>Gas (Wei) </label><input type="text" name="" value="4700000" class="gas">
+              <button class="btn btn-success deploy-contract">Deploy Contract</button>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <section class="result">
+                <h3>Result</h3>
+                <p>Transaction hash: <span class="transaction-hash">...</span></p>
+                <p class="transaction-link"></p>
+                <h3>Address on Blockchain</h3>
+                <p class="blockchain">0x39c18f3974e52001382691fd2f78f815026a9694</p>
+                <p class="address-link"></p>
+              </section>
+            </div>
+        </section>
+        
+      </article>
+
+      <article class="interact">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Interact with Dapp</h2>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <h3>Call or Send</h3>
+            <select>
+              <option>Select Account</option>
+            </select>
+            <label>Message: </label><input type="text" name="" placeholder="Send message..."><br>
+            <button class="btn btn-success call-interaction">Call</button>
+            <button class="btn btn-success send-interaction">Send</button>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <h3>Call Send Result</h3>
+            <p class="call-send-result"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Dapp Message History</h2>
+            <button class="btn btn-success get-logs">Get Logs</button>
+            <button class="btn btn-success watch">Watch</button>
+            <button class="btn btn-info stop-watch">Stop Watch</button>
+            <p>Messages: <span class="event-count"></span></p>
+          </div>
+          <div class="col-xs-12">
+            <div class="panel">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th>Message</th>
+                    <th>Address</th>
+                    <th>Last Updated</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>          
+      </article>
+
+      <article class="connect">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Connect to Ethereum</h2>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="set-up">
+              <h3>Set Up</h3>
+              <p>Status: <span></span></p>
+              <label>Provider: </label><input type="text" name="" value="http://localhost:8545">
+              <p>
+                <button class="btn btn-success blockchain-connect">Connect</button>
+              </p>
+            </div>
+            <div class="node-status">
+              <h3>Node Status</h3>
+              <p>Connected Peers: <span></span></p>
+              <button class="btn btn-success get-node-status">Get Node Status</button>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="version">
+              <h3>Version</h3>
+              <p>...</p>
+            </div>
+            <div class="node-type">
+              <h3>Node Type</h3>
+              <p>...</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="footer">
+        <p>♥ from the Yeoman team</p>
+      </div>
+    </div>
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bignumber.js/bignumber.js"></script>
+    <script src="/bower_components/crypto-js/index.js"></script>
+    <script src="/bower_components/web3/dist/web3.js"></script>
+    <script src="/bower_components/web3/dist/web3.min.js"></script>
+
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
